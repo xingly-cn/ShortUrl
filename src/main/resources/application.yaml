@@ -1,4 +1,6 @@
-
+server:
+  host: http://http://localhost:8083/
+  port: 8083
 
 spring:
   datasource:
