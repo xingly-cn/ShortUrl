@@ -1,4 +1,4 @@
-package com.asugar.shorturl.mapper.impl;
+package com.asugar.shorturl.service.impl;
 
 import cn.hutool.bloomfilter.BitMapBloomFilter;
 import cn.hutool.bloomfilter.BloomFilterUtil;
@@ -10,6 +10,7 @@ import com.asugar.shorturl.util.HashUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
  * @Auther： 一枚方糖
  * @Date： /08/13/19:29/
  */
+@Service
 public class UrlServiceImpl implements UrlService {
     // 接口注入
     @Autowired
