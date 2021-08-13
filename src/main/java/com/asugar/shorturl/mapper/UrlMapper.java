@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @Description：Url持久层
  * @Auther： 一枚方糖
@@ -44,6 +46,6 @@ public interface UrlMapper {
      * @return
      */
     @Select("select * from url_map")
-    Object getAllUrlInfo();
+    List<UrlInfo> getAllUrlInfo();
 
 }
