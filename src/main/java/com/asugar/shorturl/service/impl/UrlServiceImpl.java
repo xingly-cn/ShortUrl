@@ -46,7 +46,7 @@ public class UrlServiceImpl implements UrlService {
             return longUrl;
         }
         // Redis没有缓存,查数据库
-        longUrl = getLongUrl(shortURL);
+        longUrl = urlMapper.getLongUrl(shortURL);
         if(longUrl != null) {
             // 将短链接添加缓存
             redisTemplate.opsForValue().set(shortURL,longUrl,timeout,TimeUnit.MINUTES);
