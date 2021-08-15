@@ -39,6 +39,19 @@ public class UrlController {
         return new ToResult(500,"生成失败",1,"url格式错误");
     }
 
+    @RequestMapping("/ck/{longURL}")
+    @ResponseBody
+    public ToResult generateShortUrl2(@PathVariable("longURL") String longURL) {
+        if(UrlCheck.checkURL(longURL)) {
+            if(!longURL.startsWith("http")) {
+                longURL = "http://" + longURL;
+            }
+            String ShortUrl = urlService.saveUrlMap(HashUtils.hashToBase62(longURL), longURL, longURL);
+            return new ToResult(200,"生成成功",1,host+ShortUrl);
+        }
+        return new ToResult(500,"生成失败",1,"url格式错误");
+    }
+
     @RequestMapping("/{shortURL}")
     public String redirect(@PathVariable String shortURL) {
         String longUrl = urlService.getLongUrl(shortURL);
