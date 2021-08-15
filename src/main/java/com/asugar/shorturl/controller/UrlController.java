@@ -26,7 +26,7 @@ public class UrlController {
         this.host = host;
     }
 
-    @PostMapping("/generate")
+    @RequestMapping("/generate")
     @ResponseBody
     public ToResult generateShortUrl(@RequestParam("longURL") String longURL) {
         if(UrlCheck.checkURL(longURL)) {
